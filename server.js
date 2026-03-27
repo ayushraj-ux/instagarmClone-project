@@ -270,42 +270,6 @@ try {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-// app.post("/createPost",  upload.single('image'),verifyUser, async (req, res) => {
-//   try {
-
-// const decoded_id = req.user.id
-//     const { caption, description, type } = req.body;
-
-//     let postData = {
-//       deatailId: decoded_id._id,
-//       caption,
-//       description,
-//       type
-//     };
-
-
-//     if (req.file) {
-//       const result = await PostFile(req.file.buffer.toString("base64"));
-//       postData.postImage = result.url;
-//     }
-
-//     const postDetail = await postModal.create(postData);
-//     await userDetail.findOneAndUpdate({deatailId: decoded_id,},
-//         { $addToSet: { post: postDetail._id } }
-//     )
-    
-
-//     res.status(201).json({
-//       message: "New post created",
-//       postDetail
-//     });
-
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
 app.post("/createPost", upload.single('image'), verifyUser, async (req, res) => {
   try {
     const decoded_id = req.user.id;
@@ -418,14 +382,6 @@ app.get("/post/:id",async(req,res)=>{
 })
 
 
-// app.get('/feedPost',verifyUser,  async(req,res)=>{
-//   const feedPost = await postModal.find()
-//    res.status(201).json({
-//     message: "feedPost fetched",
-//     feedPost
-
-//    })
-// })
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
